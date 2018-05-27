@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC');
+
+body{
+    overflow-y: scroll;
+    background-image: url("../images/dnd-background.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+body:before,
+body:after {
+    content: "";
+    display: table;
+}
+body:after {
+    clear: both;
+}
+
+body > *{
+    margin-top: 2%;
+    margin-left: 3%;
+    margin-bottom: 2%;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+form, button{
+    color: white;
+}
+
+form{
+    height: 43rem;
+    background: rgba(0, 0, 0, 0.46);
+    padding: 2%;
+    float: right;
+    width: 34%;
+    position: fixed;
+}
+
+h1, h1 + p, table{
+    text-align: center;
+}
+
+h1, h1 + p{
+    font-family: Cinzel, "Arial Black", serif;
+}
+
+h1 + p{
+    margin-bottom: 5%;
+}
+
+label, select{
+    display: block;
+}
+
+select{
+    margin-bottom: 1%;
+}
+
+.btn-round-lg{
+    width: 100%;
+    margin-top: 5%;
+}
+
+.btn-round-lg, article button{
+    background-color: rgba(91, 45, 35, 0.91);
+    border-color: rgba(91, 45, 35, 0.91);
+    border-width: 2px;
+    border-radius: 22.5px !important;
+}
+
+.btn-round-lg:hover, article button:hover{
+    background-color: rgba(145, 64, 49, 0.9) !important;
+    border-color: rgba(91, 45, 35, 0.91); !important;
+}
+
+.btn-round-lg:active, .btn-round-lg:focus, article button:active, article button:focus{
+    box-shadow: none !important;
+}
+
+article{
+    background: rgba(255, 255, 255, 0.7);
+    padding: 2%;
+    margin-right: 3%;
+    float: right;
+    width: 57%;
+    min-height: 43rem;
+}
+
+.center{
+    text-align: center;
+}
+
+.center h2{
+    margin-bottom: 3%;
+}
+
+.image{
+    display: flex;
+    align-items: center;
+}
+
+img{
+    max-width: 80%;
+    height: auto;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    line-height: 200%;
+    font-weight: 500;
+}
+
+a:hover{
+    text-decoration: none;
+    color: #873d2e;
+}
+
+article button{
+    float: right;
+}
+
+h2{
+    margin-bottom: 0;
+    font-family: Cinzel, "Arial Black", serif;
+    font-weight: bold;
+}
+
+h2, th, table + div strong, p + div strong, h3, a{
+    color: #521B0F;
+}
+
+h2 + p, p+div, table, table + div{
+    border-bottom: 3px solid #911B0C;
+    padding-bottom: 1%;
+    margin-bottom: 1%;
+}
+
+p{
+    margin-bottom: 0;
+}
+
+table{
+    width: 100%;
+}
+
+h3{
+    font-family: "Alegreya Sans SC", "Arial Black", sans-serif;
+    border-bottom: 2px solid #911B0C;
+    padding-bottom: 0;
+}
+
+div + div strong, h2 + p{
+    font-style: italic;
+}
+
+div + div p{
+    margin-bottom: 1%;
+}
+
+.removeMonster{
+    margin-top: 5%;
+}
+
+@media only screen and (max-width: 950px) {
+
+    body > *{
+        float: none;
+        position: relative;
+        width: auto;
+    }
+
+    form{
+        margin-right: 3%;
+    }
+
+    form button{
+        margin-top: 2% !important;
+    }
+
+    article{
+        min-height: auto;
+    }
+
+    article ul+button{
+        float: none;
+    }
+}

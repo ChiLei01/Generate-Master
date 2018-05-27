@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate Monsters</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/screen.css">
+    <link rel="icon" href="assets/images/icons/icon-512x512.png">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <form>
+        <h1>Monster generator</h1>
+        <p>D&D 5th Edition</p>
+
+        <label for="cr">Challenge rate:</label>
+        <select id="cr" class="form-control">
+            <option value="any">Any</option>
+        </select>
+
+        <label for="type">Type:</label>
+        <select id="type" class="form-control">
+            <option value="any">Any</option>
+        </select>
+
+        <label for="size">Size:</label>
+        <select id="size" class="form-control">
+            <option value="any">Any</option>
+        </select>
+
+        <label for="language">Language:</label>
+        <select id="language" class="form-control">
+            <option value="any">Any</option>
+        </select>
+
+        <label for="alignment">Alignment:</label>
+        <select id="alignment" class="form-control">
+            <option value="any">Any</option>
+        </select>
+
+
+        <button type="button" class="btn btn-round-lg btn-lg">Generate</button>
+        <button type="button" class="btn btn-round-lg">My Monsters</button>
+    </form>
+
+    <article class="image"><img src='assets/images/findMonster.png'></article>
+
+    <script src="assets/js/localforage.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+    <script type="text/javascript" src="sw.js"></script>
+</body>
+</html>
