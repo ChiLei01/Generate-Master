@@ -10,7 +10,7 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-let CACHE_NAME = 'GM-v1';
+let CACHE_NAME = 'GM-v2';
 let urlsToCache = [
     '/',
     'index.html',
@@ -48,5 +48,19 @@ self.addEventListener('fetch', function(event) {
                     return fetch(event.request);
                 }
             )
+    );
+});
+
+self.addEventListener('activate', function(event) {
+    let cacheWhitelist = ['GM-v2'];
+
+    event.waitUntil(
+        caches.keys().then(function(keyList) {
+            return Promise.all(keyList.map(function(key) {
+                if (cacheWhitelist.indexOf(key) === -1) {
+                    return caches.delete(key);
+                }
+            }));
+        })
     );
 });

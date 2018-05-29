@@ -5,6 +5,7 @@
 let saveMonsters = [];
 let monsters;
 let monster;
+let filterMonsters;
 
 let showCR = function () {
     let CR = [];
@@ -78,32 +79,32 @@ let generate = function () {
     let language = $("#language").val().toLowerCase();
     let alignment = $("#alignment").val();
     let random;
-    let filterMonsters;
+    filterMonsters = JSON.parse(JSON.stringify(monsters));
 
-    if(language === 'No language')
+    if(language === 'no language')
         language = "";
 
     if(cr !== 'any')
         cr = parseInt(cr);
 
     if(cr !== 'any')
-        filterMonsters = monsters.filter(x => x.challenge_rating === cr);
+        filterMonsters = filterMonsters.filter(x => x.challenge_rating === cr);
 
     if(size !== 'any')
-        filterMonsters = monsters.filter(x => x.size === size);
+        filterMonsters = filterMonsters.filter(x => x.size === size);
 
     if(type !== 'any')
-        filterMonsters = monsters.filter(x => x.type === type);
+        filterMonsters = filterMonsters.filter(x => x.type === type);
 
-    if(language !== 'any')
-        filterMonsters = monsters.filter(x => x.languages.toLowerCase().indexOf(language) >= 0);
+    if(language !== 'any' && language !== '')
+    {
+        filterMonsters = filterMonsters.filter(x => x.languages.toLowerCase().indexOf(language) >= 0);
+    } else if(language === ''){
+        filterMonsters = filterMonsters.filter(x => x.languages === language);
+    }
 
     if(alignment !== 'any')
-        filterMonsters = monsters.filter(x => x.alignment === alignment);
-
-    if(filterMonsters === undefined){
-        filterMonsters = monsters;
-    }
+        filterMonsters = filterMonsters.filter(x => x.alignment === alignment);
 
     if(filterMonsters.length !== 0){
         random = Math.floor(Math.random() * (filterMonsters.length));
@@ -135,7 +136,12 @@ let showMonster = function (isGenerate) {
         random = Math.floor(Math.random() * (11)) -5;
     }
 
-    monster.hit_points = monster.hit_points + random;
+    if ( monster.hit_points + random <= 0){
+        monster.hit_points = 1;
+    } else{
+        monster.hit_points = monster.hit_points + random;
+    }
+
 
     $('article').empty().removeClass().append(
         button +
@@ -357,7 +363,7 @@ let SortByName = function (a, b){
 };
 
 let showSaveMonster = function () {
-    monster = monsters.filter(x => x.name === $(this).text())[0];
+    monster = saveMonsters.filter(x => x.name === $(this).text())[0];
     showMonster(false);
 };
 
